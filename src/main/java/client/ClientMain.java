@@ -1,6 +1,6 @@
 package client;
 
-import client.component.gameBoard.GameBoardController;
+import controllers.GameBoardController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +17,7 @@ public class ClientMain extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader;
         Parent parent;
-        loader = new FXMLLoader(getClass().getResource("/gameboard.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/view/gameboard.fxml"));
         loader.setController(controller);
         parent = loader.load();
         primaryStage.setTitle("CARD GAME");

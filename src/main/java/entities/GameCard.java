@@ -1,9 +1,7 @@
-package app.entities;
+package entities;
 
-import app.dto.GameDto;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

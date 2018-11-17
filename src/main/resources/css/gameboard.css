@@ -1,0 +1,4 @@
+#test2 {
+    -fx-background-size: cover, auto;
+    -fx-background-image: url("../img/testBackground.jpg")
+}

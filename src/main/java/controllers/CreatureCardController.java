@@ -1,8 +1,9 @@
-package client.component.creatureCard;
+package controllers;
 
-import app.entities.CreatureCard;
+
 import client.ActionClass;
 import client.ClientGame;
+import entities.CreatureCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;

@@ -1,30 +1,21 @@
-package client.component.gameBoard;
+package controllers;
 
-import app.dto.GameDto;
-import app.entities.CreatureCard;
-import app.entities.GameCard;
 import client.ActionClass;
 import client.ClientGame;
-import client.component.InfoPrinterController;
-import client.component.creatureCard.CreatureCardController;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import dto.GameDto;
+import entities.CreatureCard;
+import entities.GameCard;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -128,7 +119,7 @@ public class GameBoardController implements Initializable {
         for (int i = 0; i < cardList.size(); i++) {
             if (cardList.get(i) instanceof CreatureCard) {
                 FXMLLoader loader = new FXMLLoader();
-                AnchorPane pane = loader.load(getClass().getResource("/creatureCard.fxml").openStream());
+                AnchorPane pane = loader.load(getClass().getResource("/view/creatureCard.fxml").openStream());
                 CreatureCardController controller = loader.getController();
                 controller.setValues((CreatureCard) cardList.get(i), i, "hand");
                 CARD_GRIDPANE.addColumn(i, pane);
@@ -151,7 +142,7 @@ public class GameBoardController implements Initializable {
         if (cards != null) {
             for (int i = 0; i < cards.size(); i++) {
                 FXMLLoader loader = new FXMLLoader();
-                AnchorPane pane = loader.load(getClass().getResource("/creatureCard.fxml").openStream());
+                AnchorPane pane = loader.load(getClass().getResource("/view/creatureCard.fxml").openStream());
                 CreatureCardController controller = loader.getController();
                 controller.setValues(cards.get(i), i, table);
                 thePane.addColumn(i, pane);
@@ -189,7 +180,7 @@ public class GameBoardController implements Initializable {
 
     private void loadPrintComponent() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        infoPan = loader.load(getClass().getResource("/infoPrinter.fxml").openStream());
+        infoPan = loader.load(getClass().getResource("/view/infoPrinter.fxml").openStream());
         infoPrinterController = loader.getController();
         CARDS_ON_TABLE.getChildren().addAll(infoPan);
     }

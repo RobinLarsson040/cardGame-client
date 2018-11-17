@@ -1,6 +1,5 @@
-package client.component;
+package controllers;
 
-import client.ClientGame;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;

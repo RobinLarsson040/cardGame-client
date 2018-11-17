@@ -1,10 +1,9 @@
-package app.dto;
+package dto;
 
-import app.entities.CreatureCard;
-import app.entities.GameCard;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import entities.CreatureCard;
+import entities.GameCard;
 
 import java.io.Serializable;
 import java.util.List;

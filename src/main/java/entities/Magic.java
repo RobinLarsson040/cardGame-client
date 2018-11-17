@@ -1,4 +1,7 @@
-package app.entities;
+package entities;
+
+import entities.CreatureCard;
+import entities.Player;
 
 import java.util.List;
 import java.util.Random;

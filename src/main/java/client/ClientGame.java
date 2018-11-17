@@ -1,10 +1,13 @@
 package client;
 
-import app.dto.GameDto;
-import app.entities.CreatureCard;
-import client.component.gameBoard.GameBoardController;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import controllers.GameBoardController;
+import dto.GameDto;
+import entities.CreatureCard;
+
 import java.io.IOException;
+
 import java.util.List;
 import java.util.Scanner;
 

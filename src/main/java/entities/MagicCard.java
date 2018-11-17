@@ -1,7 +1,7 @@
-package app.entities;
+package entities;
 
-import app.MagicMethod;
 
+import client.MagicMethod;
 
 public class MagicCard implements GameCard {
 
