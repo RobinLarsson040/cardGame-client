@@ -39,9 +39,7 @@ public class GameBoardController implements Initializable {
     @FXML
     private Label GAME_ROUND;
     @FXML
-    private Button ATTACK_ENEMY_BTN;
-
-
+    public Button ATTACK_ENEMY_BTN;
     @FXML
     public Button END_TURN_BTN;
 

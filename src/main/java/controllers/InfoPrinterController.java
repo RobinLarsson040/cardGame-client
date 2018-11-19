@@ -26,6 +26,10 @@ public class InfoPrinterController {
         String msg = msgArray[1];
         System.out.println("MESSAGE TO PRINT INFO " + text);
         INFO_TEXT_INPUT2.setText(msg);
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(5000),
+                ae -> INFO_TEXT_INPUT2.setText("")));
+        timeline.play();
     }
 
     public void nextPlayerTurn(boolean playerOneTurn) {

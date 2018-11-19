@@ -106,6 +106,7 @@ public class ActionClass implements Initializable {
     }
 
     public void attackPlayer() throws IOException {
+        System.out.println("attackPlayer");
         currentPlayer = ClientGame.getPlayer();
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
