@@ -15,7 +15,7 @@ public class ClientGame extends Thread {
 
     public static ClientNetwork clientNetwork;
 
-    public static ClientNetwork getClientNetwork () {
+    public static ClientNetwork getClientNetwork() {
         return clientNetwork;
     }
 
@@ -52,12 +52,13 @@ public class ClientGame extends Thread {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                if(msgFromServer.startsWith("PLAYER")){
+                if (msgFromServer.startsWith("PLAYER")) {
                     String[] playerString = msgFromServer.split(":");
                     player = playerString[1];
                     System.out.println("YOU ARE PLAYER: " + player);
-                }
-                else if (!msgFromServer.startsWith("GUI")) {
+                } else if (msgFromServer.startsWith("MESSAGE")) {
+                    System.out.println(msgFromServer);
+                } else if (msgFromServer.startsWith("ERROR")) {
                     System.out.println(msgFromServer);
                 } else {
                     try {
@@ -78,7 +79,7 @@ public class ClientGame extends Thread {
     }
 
     public void deserializeMsgFromServer(String msg) throws IOException {
-        String parsedString = msg.replace("GUI", "");
+        String parsedString = msg.replace("GUI:", "");
         GameDto gameDto = objectMapper.readValue(parsedString, GameDto.class);
         gameData = gameDto;
         player2Hp = gameDto.getPlayer2Hp();
@@ -86,17 +87,14 @@ public class ClientGame extends Thread {
 
         controller.update();
 
-
-
-
-
-        //gameDto contains all information about the game example getCardsOnhand:
-        //  gameDto.getCardsOnHand().forEach(c -> System.out.println(c.getName()));
     }
 
     public static GameDto getDto() {
         return gameData;
     }
-    public static String getPlayer() {return player; }
+
+    public static String getPlayer() {
+        return player;
+    }
 
 }

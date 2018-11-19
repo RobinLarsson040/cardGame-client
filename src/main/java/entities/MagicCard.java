@@ -11,6 +11,9 @@ public class MagicCard implements GameCard {
     private int energyCost;
     private int attackPoints;
 
+    public MagicCard() {
+    }
+
     public MagicCard(String name, int energyCost, int attackPoints) {
         this.name = name;
         this.energyCost = energyCost;

@@ -86,12 +86,12 @@ public class CreatureCardController {
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
         switch (currentPlayer) {
-            case " player1":
+            case "player1":
                 if (!playerOneTurn) {
                     this.CREATURE_CARD.setDisable(true);
                 }
                 break;
-            case " player2":
+            case "player2":
                 if (playerOneTurn) {
                     this.CREATURE_CARD.setDisable(true);
                 }

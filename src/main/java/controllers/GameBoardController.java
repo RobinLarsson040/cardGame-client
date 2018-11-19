@@ -92,13 +92,13 @@ public class GameBoardController implements Initializable {
     private void assignCards() {
 
         switch (ClientGame.getPlayer()) {
-            case " player1":
+            case "player1":
                 playerHp = ClientGame.getDto().getPlayer1Hp();
                 enemyHp = ClientGame.getDto().getPlayer2Hp();
                 playerCards = ClientGame.getDto().getPlayer1CardsOnTable();
                 enemyCards = ClientGame.getDto().getPlayer2CardsOnTable();
                 break;
-            case " player2":
+            case "player2":
                 playerHp = ClientGame.getDto().getPlayer2Hp();
                 enemyHp = ClientGame.getDto().getPlayer1Hp();
                 playerCards = ClientGame.getDto().getPlayer2CardsOnTable();
