@@ -8,7 +8,7 @@
    <children>
       <Label fx:id="INFO_TEXT_INPUT" alignment="CENTER" layoutX="251.0" layoutY="14.0" prefHeight="63.0" prefWidth="550.0" text="Label">
          <font>
-            <Font size="50.0" />
+            <Font size="30.0" />
          </font>
       </Label>
    </children>

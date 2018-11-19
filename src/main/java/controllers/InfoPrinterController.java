@@ -1,5 +1,6 @@
 package controllers;
 
+import client.ClientGame;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ public class InfoPrinterController {
 
     @FXML
     private Label INFO_TEXT_INPUT;
+
     @FXML
     public void setINFO_TEXT_INPUT(String INFO_TEXT_INPUT) {
         this.INFO_TEXT_INPUT.setText(INFO_TEXT_INPUT);
@@ -17,11 +19,11 @@ public class InfoPrinterController {
 
     @FXML
     public void printInfo(String text) {
-
+        System.out.println("MESSAGE TO PRINT INFO " + text);
         INFO_TEXT_INPUT.setText(text);
         Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(1500),
-                ae ->INFO_TEXT_INPUT.setText("") ));
+                Duration.millis(3000),
+                ae -> nextPlayerTurn(ClientGame.getDto().getPlayerOneTurn())));
         timeline.play();
     }
 
