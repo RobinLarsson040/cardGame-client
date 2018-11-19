@@ -9,6 +9,7 @@ import entities.GameCard;
 import java.io.Serializable;
 import java.util.List;
 
+
 public class GameDto implements Serializable {
     int turn;
     int round;
@@ -18,6 +19,7 @@ public class GameDto implements Serializable {
     List<CreatureCard> player1CardsOnTable;
     List<CreatureCard> player2CardsOnTable;
     List<GameCard> cardsOnHand;
+    int cardsLeftInDeck; 
 
     @JsonCreator
     public GameDto(@JsonProperty("turn") int turn,
@@ -27,7 +29,8 @@ public class GameDto implements Serializable {
                    @JsonProperty("player2Hp") int player2Hp,
                    @JsonProperty("player1CardsOnTable") List<CreatureCard> player1CardsOnTable,
                    @JsonProperty("player2CardsOnTable") List<CreatureCard> player2CardsOnTable,
-                   @JsonProperty("cardsOnHand") List<GameCard> cardsOnHand) {
+                   @JsonProperty("cardsOnHand") List<GameCard> cardsOnHand,
+                   @JsonProperty("cardsLeftInDeck") int cardsLeftInDeck) {
         this.turn = turn;
         this.round = round;
         this.playerOneTurn = playerOneTurn;
@@ -36,6 +39,15 @@ public class GameDto implements Serializable {
         this.player1CardsOnTable = player1CardsOnTable;
         this.player2CardsOnTable = player2CardsOnTable;
         this.cardsOnHand = cardsOnHand;
+        this.cardsLeftInDeck = cardsLeftInDeck;
+    }
+
+    public int getCardsLeftInDeck() {
+        return cardsLeftInDeck;
+    }
+
+    public void setCardsLeftInDeck(int cardsLeftInDeck) {
+        this.cardsLeftInDeck = cardsLeftInDeck;
     }
 
     public int getTurn() {
