@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class MagicCardController {
 
+
     private ActionClass action = ActionClass.getInstance();
 
     private int index;
@@ -22,7 +23,7 @@ public class MagicCardController {
     @FXML
     private AnchorPane MAGIC_CARD;
     @FXML
-    private Label CARD_NAME, ENERGY_COST, ATTACK_POINTS, MAGIC_METHOD, MAGIC_CARD_TYPE;
+    private Label CARD_NAME, MAGIC_CARD_TYPE, MAGIC_CARD_EC, MAGIC_CARD_AP;
     private String cardType;
 
 
@@ -31,7 +32,8 @@ public class MagicCardController {
         this.index = index;
         this.cardType = value;
         this.CARD_NAME.setText(card.getName());
-        this.ATTACK_POINTS.setText(Integer.toString(card.getAttackPoints()));
+        this.MAGIC_CARD_AP.setText(Integer.toString(card.getAttackPoints()));
+//        this.MAGIC_CARD_EC.setText(Integer.toString(card.));
     }
 
     public void onClick() throws IOException {

@@ -12,15 +12,12 @@
             <Image fx:id="IMG_URL" url="@/img/cardTemplate.png" />
          </image>
       </ImageView>
-
-      <Label layoutX="14.0" layoutY="39.0" text="energy" />
-      <Label fx:id="CARD_NAME" layoutX="43.0" layoutY="14.0" text="Label" />
-      <Label fx:id="ENERGY_COST" layoutX="71.0" layoutY="39.0" text="Label" />
-      <Label layoutX="9.0" layoutY="65.0" text="attack P" />
-      <Label fx:id="ATTACK_POINTS" layoutX="77.0" layoutY="65.0" text="Label" />
-      <Label layoutX="9.0" layoutY="100.0" text="Label" />
-      <Label fx:id="MAGIC_METHOD" layoutX="71.0" layoutY="100.0" text="Label" />
-      <Label fx:id="MAGIC_CARD_TYPE" layoutX="9.0" layoutY="129.0" prefHeight="17.0" prefWidth="101.0" text="Label" />
+      <Label fx:id="CARD_NAME" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="119.0" text="Card Name" textAlignment="CENTER" />
+      <Label layoutX="64.0" layoutY="133.0" text="AT:" />
+      <Label fx:id="MAGIC_CARD_AP" layoutX="92.0" layoutY="133.0" text="00" />
+      <Label layoutX="11.0" layoutY="133.0" text="EC:" />
+      <Label fx:id="MAGIC_CARD_EC" layoutX="39.0" layoutY="133.0" text="00" />
+      <Label fx:id="MAGIC_CARD_TYPE" alignment="CENTER" layoutX="8.0" layoutY="109.0" prefHeight="17.0" prefWidth="103.0" text="Type" textAlignment="CENTER" />
 
    </children>
 </AnchorPane>
