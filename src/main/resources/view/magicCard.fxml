@@ -9,10 +9,10 @@
    <children>
       <ImageView fitHeight="170.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image fx:id="IMG_URL" url="@/img/cardTemplate.png" />
+            <Image fx:id="IMG_URL" url="@/img/MagicCard.png" />
          </image>
       </ImageView>
-      <Label fx:id="CARD_NAME" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="119.0" text="Card Name" textAlignment="CENTER" />
+      <Label fx:id="CARD_NAME" alignment="CENTER" layoutY="16.0" prefHeight="17.0" prefWidth="119.0" text="Card Name" textAlignment="CENTER" />
       <Label layoutX="64.0" layoutY="133.0" text="AT:" />
       <Label fx:id="MAGIC_CARD_AP" layoutX="92.0" layoutY="133.0" text="00" />
       <Label layoutX="11.0" layoutY="133.0" text="EC:" />
