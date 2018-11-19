@@ -1,5 +1,6 @@
 package client;
 
+import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -28,15 +29,38 @@ public class ActionClass implements Initializable {
     private boolean playerOneTurn;
     private int card1 = -1;
     private int card2 = -1;
+    private int magicCard = -1;
+
+    public void setMagicCard(int magicCard, String attackType) throws IOException {
+        this.magicCard = magicCard;
+
+        if (attackType.equals("instant")) {
+            castMagicInstant();
+            resetCards();
+        }
+
+    }
 
     public void setCard1(int card1) throws IOException {
         this.card1 = card1 + 1;
         attackPLayer();
+
+        if (magicCard != -1 && card1 != -1) {
+            castMagicTargetHeal();
+            resetCards();
+        }
     }
 
     public void setCard2(int card2) throws IOException {
         this.card2 = card2 + 1;
-        attack();
+        if (card1 != -1 && card2 != -1) {
+            attack();
+            resetCards();
+        } else if (card2 != -1 && magicCard != -1) {
+            castMagicTargetDamage();
+            resetCards();
+        }
+
     }
 
     private void attack() throws IOException {
@@ -55,16 +79,22 @@ public class ActionClass implements Initializable {
 
     private void castMagicTargetDamage() throws IOException {
         if (card1 >= 0 && card2 >= 0) {
-            System.out.println("CAST_MAGIC_TARGET_DAMAGE:" + card1 + ":" + card2);
-            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_DAMAGE:" + card1 + ":" + card2);
+            System.out.println("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
+            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
         }
     }
 
     private void castMagicTargetHeal() throws IOException {
-        if (card1 >= 0 && card2 >= 0) {
-            System.out.println("CAST_MAGIC_TARGET_HEAL:" + card1 + ":" + card2);
-            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_HEAL:" + card1 + ":" + card2);
+        if (magicCard >= 0 && card1 >= 0) {
+            System.out.println("CAST_MAGIC_TARGET_HEAL:" + magicCard + ":" + card1);
+            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_HEAL:" + magicCard + ":" + card1);
         }
+    }
+
+    private void resetCards() {
+        card1 = -1;
+        card2 = -1;
+        magicCard = -1;
     }
 
     @FXML
