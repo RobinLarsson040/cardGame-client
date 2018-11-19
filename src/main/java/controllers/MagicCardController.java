@@ -45,6 +45,8 @@ public class MagicCardController {
         this.cardType = value;
         tooltip.setText(setToolTipText());
         Tooltip.install(MAGIC_CARD,tooltip);
+
+        getPlayerAndPlayerTurn();
     }
 
     public void onClick() throws IOException {
