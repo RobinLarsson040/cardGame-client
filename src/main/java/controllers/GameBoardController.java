@@ -38,6 +38,9 @@ public class GameBoardController implements Initializable {
     private AnchorPane infoPan, CARDS_ON_TABLE;
     @FXML
     private Label GAME_ROUND;
+    @FXML
+    private Button ATTACK_ENEMY_BTN;
+
 
     @FXML
     public Button END_TURN_BTN;
@@ -58,6 +61,13 @@ public class GameBoardController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ATTACK_ENEMY_BTN.setOnAction((event -> {
+            try {
+                action.attackPlayer();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }));
 
         END_TURN_BTN.setOnAction((event -> {
             try {
@@ -194,6 +204,9 @@ public class GameBoardController implements Initializable {
         infoPrinterController = loader.getController();
         CARDS_ON_TABLE.getChildren().addAll(infoPan);
     }
+
+
+
 
 
 }

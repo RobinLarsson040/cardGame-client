@@ -1,6 +1,5 @@
 package client;
 
-import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -46,7 +45,7 @@ public class ActionClass implements Initializable {
     public void setCard1(int card1) throws IOException {
         System.out.println(card1);
         this.card1 = card1 + 1;
-//        attackPLayer();
+
         System.out.println(magicCard);
 
         if (magicCard != -1 && card1 != -1 && attackType.equals("heal")) {
@@ -106,7 +105,7 @@ public class ActionClass implements Initializable {
         ClientGame.getClientNetwork().sendMessage("END_TURN");
     }
 
-    private void attackPLayer() throws IOException {
+    public void attackPlayer() throws IOException {
         currentPlayer = ClientGame.getPlayer();
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
