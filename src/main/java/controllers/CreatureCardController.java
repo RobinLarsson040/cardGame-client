@@ -15,6 +15,7 @@ import java.io.IOException;
 
 public class CreatureCardController {
 
+
     private ActionClass action = ActionClass.getInstance();
 
     @FXML
@@ -22,7 +23,7 @@ public class CreatureCardController {
     @FXML
     private AnchorPane CREATURE_CARD;
     @FXML
-    private Label CARD_NAME, CARD_HP;
+    private Label CARD_NAME, CARD_HP, CARD_CD, CARD_DP, CARD_AP;
 
     private int index;
     private String table;
@@ -36,6 +37,9 @@ public class CreatureCardController {
         this.isUsed = card.getIsUsed();
         CARD_NAME.setText(card.getName());
         CARD_HP.setText(Integer.toString(card.getHp()));
+        CARD_AP.setText(Integer.toString(card.getAttackPoints()));
+        CARD_CD.setText(Integer.toString(card.getCoolDown()));
+        CARD_DP.setText(Integer.toString(card.getDefencePoint()));
         checkIfUsedAndDisable();
         getPlayerAndPlayerTurn();
     }

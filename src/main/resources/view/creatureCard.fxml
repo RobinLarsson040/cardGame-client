@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="CREATURE_CARD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="170.0" prefWidth="119.0"  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreatureCardController">
+<AnchorPane fx:id="CREATURE_CARD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="170.0" prefWidth="119.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CreatureCardController">
    <children>
       <ImageView fitHeight="170.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,9 +13,15 @@
          </image>
       </ImageView>
 
-      <Label layoutX="13.0" layoutY="129.0" text="HP: " />
-      <Label fx:id="CARD_NAME" layoutX="43.0" layoutY="14.0" text="Label" />
-      <Label fx:id="CARD_HP" layoutX="39.0" layoutY="129.0" text="Label" />
+      <Label layoutX="7.0" layoutY="105.0" prefHeight="17.0" prefWidth="27.0" text="CD: " />
+      <Label fx:id="CARD_NAME" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="14.0" prefHeight="17.0" prefWidth="106.0" text="CardName" textAlignment="CENTER" />
+      <Label fx:id="CARD_CD" alignment="CENTER" layoutX="34.0" layoutY="105.0" prefHeight="17.0" prefWidth="17.0" text="00" />
+      <Label layoutX="7.0" layoutY="122.0" prefHeight="17.0" prefWidth="27.0" text="DP: " />
+      <Label layoutX="7.0" layoutY="139.0" prefHeight="17.0" prefWidth="27.0" text="AP: " />
+      <Label fx:id="CARD_DP" alignment="CENTER" layoutX="34.0" layoutY="122.0" prefHeight="17.0" prefWidth="17.0" text="00" />
+      <Label fx:id="CARD_AP" alignment="CENTER" layoutX="34.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
+      <Label layoutX="60.0" layoutY="139.0" prefHeight="17.0" prefWidth="27.0" text="HP: " />
+      <Label fx:id="CARD_HP" alignment="CENTER" layoutX="87.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
 
    </children>
 </AnchorPane>
