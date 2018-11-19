@@ -3,8 +3,12 @@ package client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controllers.GameBoardController;
+import controllers.InfoPrinterController;
 import dto.GameDto;
 import entities.CreatureCard;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -32,6 +36,8 @@ public class ClientGame extends Thread {
     Scanner scanner;
     static GameDto gameData;
     GameBoardController controller;
+    static String messageToScreen;
+
 
     public ClientGame(String address, int port, GameBoardController controller) throws IOException {
         this.clientNetwork = new ClientNetwork();
@@ -57,10 +63,11 @@ public class ClientGame extends Thread {
                     player = playerString[1];
                     System.out.println("YOU ARE PLAYER: " + player);
                 } else if (msgFromServer.startsWith("MESSAGE")) {
-                    System.out.println(msgFromServer);
+                    messageToScreen = msgFromServer;
+                    controller.updateMessage();
                 } else if (msgFromServer.startsWith("ERROR")) {
-
-                    System.out.println(msgFromServer);
+                    messageToScreen = msgFromServer;
+                    controller.updateMessage();
                 } else {
                     try {
                         deserializeMsgFromServer(msgFromServer);
@@ -98,6 +105,9 @@ public class ClientGame extends Thread {
         return player;
     }
 
+    public static String getMessageToScreen() {
+        return messageToScreen;
+    }
 
 
 }

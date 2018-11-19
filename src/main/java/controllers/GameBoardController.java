@@ -100,6 +100,21 @@ public class GameBoardController implements Initializable {
         }
     }
 
+    public void updateMessage() {
+        try {
+            new Thread(() -> {
+                Platform.runLater(() -> {
+                    try {
+                        infoPrinterController.printInfo(ClientGame.getMessageToScreen());
+                    } catch (Exception e) {
+                        System.out.println("could not print to screen");
+                    }
+                });
+            }).start();
+        } catch (Exception e) {
+        }
+    }
+
 
     //    Måste ändra namn till något bra!
     private void assignCards() {
@@ -137,7 +152,7 @@ public class GameBoardController implements Initializable {
                 controller.setValues((CreatureCard) cardList.get(i), i, "hand");
                 CARD_GRIDPANE.addColumn(i, pane);
 
-            } else if (cardList.get(i) instanceof MagicCard){
+            } else if (cardList.get(i) instanceof MagicCard) {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane pane = loader.load(getClass().getResource("/view/magicCard.fxml").openStream());
                 MagicCardController controller = loader.getController();
@@ -172,8 +187,6 @@ public class GameBoardController implements Initializable {
         PLAYER_NAME.setText(ClientGame.getPlayer());
         ENEMY_HP_PROGRESSBAR.setProgress((enemyHp * 0.05));
         GAME_ROUND.setText(Integer.toString(ClientGame.getDto().getRound()));
-        System.out.println("Player 1hp "+ playerHp);
-        System.out.println("Player 2hp "+ enemyHp);
     }
 
     private void getPlayerAndPlayerTurn() {
@@ -204,9 +217,6 @@ public class GameBoardController implements Initializable {
         infoPrinterController = loader.getController();
         CARDS_ON_TABLE.getChildren().addAll(infoPan);
     }
-
-
-
 
 
 }
