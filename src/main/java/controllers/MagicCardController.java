@@ -9,7 +9,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class MagicCardController {
     private int index;
-    private String table;
     @FXML
     private Image IMG_URL;
     @FXML
@@ -19,7 +18,7 @@ public class MagicCardController {
 
 
     public void setValues(MagicCard card, int index, String value) {
-        this.table = value;
+        this.type = value;
         this.index = index;
         this.CARD_NAME.setText(card.getName());
         this.ATTACK_POINTS.setText(Integer.toString(card.getAttackPoints()));

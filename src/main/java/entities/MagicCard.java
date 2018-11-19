@@ -10,14 +10,16 @@ public class MagicCard implements GameCard {
     private MagicMethod magicMethod;
     private int energyCost;
     private int attackPoints;
+    private String imageUrl;
+    private String magicType;
 
-    public MagicCard() {
-    }
-
-    public MagicCard(String name, int energyCost, int attackPoints) {
+    public MagicCard(String name, int energyCost, int attackPoints, String imageUrl, String magicType) {
         this.name = name;
         this.energyCost = energyCost;
         this.attackPoints = attackPoints;
+        this.imageUrl = imageUrl;
+        this.magicType = magicType;
+
     }
 
     public MagicMethod getMagicMethod() {
@@ -34,5 +36,21 @@ public class MagicCard implements GameCard {
 
     public int getAttackPoints(){
         return attackPoints;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public String getMagicType() {
+        return magicType;
+    }
+
+    public void setMagicType(String magicType) {
+        this.magicType = magicType;
     }
 }

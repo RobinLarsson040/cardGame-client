@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = MagicCard.class, name = "magiccard")}
 )
 public interface GameCard {
-
     public String getName();
 
     public int getAttackPoints();

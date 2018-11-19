@@ -59,6 +59,7 @@ public class ClientGame extends Thread {
                 } else if (msgFromServer.startsWith("MESSAGE")) {
                     System.out.println(msgFromServer);
                 } else if (msgFromServer.startsWith("ERROR")) {
+
                     System.out.println(msgFromServer);
                 } else {
                     try {
@@ -96,5 +97,7 @@ public class ClientGame extends Thread {
     public static String getPlayer() {
         return player;
     }
+
+
 
 }

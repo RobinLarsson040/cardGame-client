@@ -36,6 +36,8 @@ public class GameBoardController implements Initializable {
     private BorderPane GAME_BOARD;
     @FXML
     private AnchorPane infoPan, CARDS_ON_TABLE;
+    @FXML
+    private Label GAME_ROUND;
 
     @FXML
     public Button END_TURN_BTN;
@@ -159,6 +161,7 @@ public class GameBoardController implements Initializable {
         PLAYER_HP_PROGRESSBAR.setProgress(playerHp / 10);
         PLAYER_NAME.setText(ClientGame.getPlayer());
         ENEMY_HP_PROGRESSBAR.setProgress(enemyHp / 10);
+        GAME_ROUND.setText(Integer.toString(ClientGame.getDto().getRound()));
     }
 
     private void getPlayerAndPlayerTurn() {

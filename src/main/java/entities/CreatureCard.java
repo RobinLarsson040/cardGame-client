@@ -19,6 +19,7 @@ public class CreatureCard implements Serializable, GameCard {
     @JsonFormat(shape = JsonFormat.Shape.OBJECT)
     private String attackType;
     private boolean isUsed;
+    private String imageUrl;
 
 
     @JsonCreator
@@ -29,7 +30,8 @@ public class CreatureCard implements Serializable, GameCard {
                         @JsonProperty("defencePoints") int defencePoint,
                         @JsonProperty("coolDown") int coolDown,
                         @JsonProperty("attackType") String attackType,
-                        @JsonProperty("isUsed") boolean isUsed) {
+                        @JsonProperty("isUsed") boolean isUsed,
+                        @JsonProperty("imageUrl") String imageUrl){
         this.hp = hp;
         this.hpMax = hp;
         this.name = name;
@@ -39,6 +41,7 @@ public class CreatureCard implements Serializable, GameCard {
         this.coolDown = coolDown;
         this.attackType = attackType;
         this.isUsed = isUsed;
+        this.imageUrl = imageUrl;
     }
 
 //    public CreatureCard(String name) {
@@ -142,5 +145,16 @@ public class CreatureCard implements Serializable, GameCard {
 
     public void setAttackType(String attackType) {
         this.attackType = attackType;
+    }
+    public int getHpMax() {
+        return hpMax;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
