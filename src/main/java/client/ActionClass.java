@@ -32,7 +32,7 @@ public class ActionClass implements Initializable {
     private int magicCard = -1;
 
     public void setMagicCard(int magicCard, String attackType) throws IOException {
-        this.magicCard = magicCard;
+        this.magicCard = magicCard +1;
 
         if (attackType.equals("instant")) {
             castMagicInstant();
@@ -71,9 +71,9 @@ public class ActionClass implements Initializable {
     }
 
     private void castMagicInstant() throws IOException {
-        if (card1 >= 0) {
-            System.out.println("CAST_MAGIC_INSTANT:" + card1);
-            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_INSTANT:" + card1);
+        if (magicCard >= 0) {
+            System.out.println("CAST_MAGIC_INSTANT:" + magicCard);
+            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_INSTANT:" + magicCard);
         }
     }
 
@@ -107,14 +107,14 @@ public class ActionClass implements Initializable {
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
         switch (currentPlayer) {
-            case " player1":
+            case "player1":
                 if (playerOneTurn) {
                     if (ClientGame.getDto().getPlayer2CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
                         ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:" + card1);
                     }
                 }
                 break;
-            case " player2":
+            case "player2":
                 if (!playerOneTurn) {
                     if (ClientGame.getDto().getPlayer1CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
                         ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:" + card1);

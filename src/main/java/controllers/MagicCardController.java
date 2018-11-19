@@ -33,13 +33,15 @@ public class MagicCardController {
     }
 
     public void onClick() throws IOException {
+        System.out.println(cardType + index);
         if (cardType.equals("DAMAGEALLCARDS")
                 || cardType.equals("HEALALLCARDS")
                 || cardType.equals("HEALPLAYER")
                 || cardType.equals("DAMAGEPLAYER")
                 || cardType.equals("HEALWHOLETABLE")) {
 
-            action.
+            System.out.println(index);
+            action.setMagicCard(index,"instant");
 
         }
     }
