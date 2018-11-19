@@ -2,6 +2,7 @@ package controllers;
 
 
 import client.ActionClass;
+import client.ClientGame;
 import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,7 +18,8 @@ public class MagicCardController {
 
 
     private ActionClass action = ActionClass.getInstance();
-
+    private String currentPlayer;
+    private boolean playerOneTurn;
     private int index;
     @FXML
     private Image IMG_URL;
@@ -94,6 +96,24 @@ public class MagicCardController {
                 return "Pick a Enemy card to Attack";
         }
         return value;
+    }
+
+    private void getPlayerAndPlayerTurn() {
+        currentPlayer = ClientGame.getPlayer();
+        playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
+
+        switch (currentPlayer) {
+            case "player1":
+                if (!playerOneTurn) {
+                    this.MAGIC_CARD.setDisable(true);
+                }
+                break;
+            case "player2":
+                if (playerOneTurn) {
+                    this.MAGIC_CARD.setDisable(true);
+                }
+                break;
+        }
     }
 
 
