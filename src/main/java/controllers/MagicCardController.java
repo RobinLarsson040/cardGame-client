@@ -5,6 +5,7 @@ import client.ActionClass;
 import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,7 @@ public class MagicCardController {
     @FXML
     private Label CARD_NAME, MAGIC_CARD_TYPE, MAGIC_CARD_EC, MAGIC_CARD_AP;
     private String cardType;
+    private Tooltip tooltip = new Tooltip();
 
 
     public void setValues(MagicCard card, int index, String value) {
@@ -39,6 +41,8 @@ public class MagicCardController {
             this.MAGIC_CARD_TYPE.setText("TARGET");
         }
         this.cardType = value;
+        tooltip.setText(setToolTipText());
+        Tooltip.install(MAGIC_CARD,tooltip);
     }
 
     public void onClick() throws IOException {
@@ -66,6 +70,30 @@ public class MagicCardController {
         borderGlow.setWidth(depth);
         borderGlow.setHeight(depth);
         MAGIC_CARD.setEffect(borderGlow);
+    }
+
+    private String setToolTipText() {
+        String value = "";
+        switch (cardType) {
+            case "DAMAGEALLCARDS":
+                value = "Damage all enemy cards";
+                break;
+            case "HEALPLAYER":
+                value = "Heal player";
+                break;
+            case "DAMAGEPLAYER":
+                value = "Attack Enemy";
+                break;
+            case "HEALWHOLETABLE":
+                value = " Heal all your Cards On Table";
+                break;
+            case "HEALONECARD":
+                value = "Pick one card to Heal";
+                break;
+            case "DAMAGEONECARD":
+                return "Pick a Enemy card to Attack";
+        }
+        return value;
     }
 
 
