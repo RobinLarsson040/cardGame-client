@@ -44,13 +44,6 @@ public class CreatureCard implements Serializable, GameCard {
         this.imageUrl = imageUrl;
     }
 
-//    public CreatureCard(String name) {
-//        hp = 4; //Random 1-7
-//        attackPoints = 4;
-//        this.name = name;
-//        isUsed = false;
-//    }
-
     public void increaseHp(int heal) {
         int oldHp = getHp();
         int newHp = oldHp + heal;
@@ -71,10 +64,6 @@ public class CreatureCard implements Serializable, GameCard {
 
     public int getHp() {
         return hp;
-    }
-
-    public int gethpMax() {
-        return hpMax;
     }
 
     public void setIsUsed(boolean isUsed) {

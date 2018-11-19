@@ -20,6 +20,8 @@
       <Label fx:id="ATTACK_POINTS" layoutX="77.0" layoutY="65.0" text="Label" />
       <Label layoutX="9.0" layoutY="100.0" text="Label" />
       <Label fx:id="MAGIC_METHOD" layoutX="71.0" layoutY="100.0" text="Label" />
+      <Label layoutX="9.0" layoutY="129.0" text="Type" />
+      <Label fx:id="MAGIC_CARD_TYPE" layoutX="60.0" layoutY="129.0" text="Label" />
 
    </children>
 </AnchorPane>

@@ -14,11 +14,11 @@ public class MagicCardController {
     @FXML
     private  AnchorPane MAGIC_CARD;
     @FXML
-    private Label CARD_NAME, ENERGY_COST, ATTACK_POINTS, MAGIC_METHOD;
+    private Label CARD_NAME, ENERGY_COST, ATTACK_POINTS, MAGIC_METHOD, MAGIC_CARD_TYPE;
 
 
     public void setValues(MagicCard card, int index, String value) {
-        this.type = value;
+        this.MAGIC_CARD_TYPE.setText(value);
         this.index = index;
         this.CARD_NAME.setText(card.getName());
         this.ATTACK_POINTS.setText(Integer.toString(card.getAttackPoints()));
