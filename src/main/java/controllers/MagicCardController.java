@@ -23,4 +23,6 @@ public class MagicCardController {
         this.CARD_NAME.setText(card.getName());
         this.ATTACK_POINTS.setText(Integer.toString(card.getAttackPoints()));
     }
+
+
 }

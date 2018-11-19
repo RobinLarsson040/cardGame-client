@@ -131,7 +131,7 @@ public class GameBoardController implements Initializable {
                 FXMLLoader loader = new FXMLLoader();
                 AnchorPane pane = loader.load(getClass().getResource("/view/magicCard.fxml").openStream());
                 MagicCardController controller = loader.getController();
-                controller.setValues((MagicCard) cardList.get(i), i, "hand");
+                controller.setValues((MagicCard) cardList.get(i), i, ((MagicCard) cardList.get(i)).getMagicType());
                 CARD_GRIDPANE.addColumn(i, pane);
             }
         }

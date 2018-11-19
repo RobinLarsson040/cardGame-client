@@ -19,7 +19,9 @@ public class MagicCard implements GameCard {
         this.attackPoints = attackPoints;
         this.imageUrl = imageUrl;
         this.magicType = magicType;
+    }
 
+    public MagicCard() {
     }
 
     public MagicMethod getMagicMethod() {

@@ -32,30 +32,6 @@ public class ActionClass implements Initializable {
         attackPLayer();
     }
 
-    private void attackPLayer() throws IOException {
-        currentPlayer = ClientGame.getPlayer();
-        playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
-
-        switch (currentPlayer) {
-            case " player1":
-                if (playerOneTurn) {
-                    if (ClientGame.getDto().getPlayer2CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
-                            ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:"+ playerCard);
-                    }
-                }
-                break;
-            case " player2":
-                if (!playerOneTurn) {
-                    if (ClientGame.getDto().getPlayer1CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
-                        ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:"+ playerCard);
-                    }
-                }
-                break;
-        }
-    }
-
-
-
     public void setEnemyCard(int enemyCard) throws IOException {
         this.enemyCard = enemyCard + 1;
         attack();
@@ -71,6 +47,28 @@ public class ActionClass implements Initializable {
     @FXML
     public void endTurn() throws IOException {
             ClientGame.getClientNetwork().sendMessage("END_TURN");
+    }
+
+    private void attackPLayer() throws IOException {
+        currentPlayer = ClientGame.getPlayer();
+        playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
+
+        switch (currentPlayer) {
+            case " player1":
+                if (playerOneTurn) {
+                    if (ClientGame.getDto().getPlayer2CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
+                        ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:"+ playerCard);
+                    }
+                }
+                break;
+            case " player2":
+                if (!playerOneTurn) {
+                    if (ClientGame.getDto().getPlayer1CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
+                        ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:"+ playerCard);
+                    }
+                }
+                break;
+        }
     }
 
 }
