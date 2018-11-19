@@ -5,8 +5,10 @@ import client.ActionClass;
 import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -33,17 +35,30 @@ public class MagicCardController {
     }
 
     public void onClick() throws IOException {
-        System.out.println(cardType + index);
+        setBorderColor();
         if (cardType.equals("DAMAGEALLCARDS")
                 || cardType.equals("HEALALLCARDS")
                 || cardType.equals("HEALPLAYER")
                 || cardType.equals("DAMAGEPLAYER")
                 || cardType.equals("HEALWHOLETABLE")) {
-
             System.out.println(index);
-            action.setMagicCard(index,"instant");
-
+            action.setMagicCard(index, "instant");
+        } else if (cardType.equals("HEALONECARD")) {
+            action.setMagicCard(index, "heal");
+        } else if (cardType.equals("DAMAGEONECARD")) {
+            action.setMagicCard(index, "damage");
         }
+    }
+
+    private void setBorderColor() {
+        int depth = 70;
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.BLUEVIOLET);
+        borderGlow.setWidth(depth);
+        borderGlow.setHeight(depth);
+        MAGIC_CARD.setEffect(borderGlow);
     }
 
 

@@ -30,9 +30,11 @@ public class ActionClass implements Initializable {
     private int card1 = -1;
     private int card2 = -1;
     private int magicCard = -1;
+    private String attackType;
 
     public void setMagicCard(int magicCard, String attackType) throws IOException {
         this.magicCard = magicCard +1;
+        this.attackType = attackType;
 
         if (attackType.equals("instant")) {
             castMagicInstant();
@@ -42,10 +44,12 @@ public class ActionClass implements Initializable {
     }
 
     public void setCard1(int card1) throws IOException {
+        System.out.println(card1);
         this.card1 = card1 + 1;
-        attackPLayer();
+//        attackPLayer();
+        System.out.println(magicCard);
 
-        if (magicCard != -1 && card1 != -1) {
+        if (magicCard != -1 && card1 != -1 && attackType.equals("heal")) {
             castMagicTargetHeal();
             resetCards();
         }
@@ -56,7 +60,7 @@ public class ActionClass implements Initializable {
         if (card1 != -1 && card2 != -1) {
             attack();
             resetCards();
-        } else if (card2 != -1 && magicCard != -1) {
+        } else if (card2 != -1 && magicCard != -1 && attackType.equals("damage") ) {
             castMagicTargetDamage();
             resetCards();
         }
@@ -78,7 +82,7 @@ public class ActionClass implements Initializable {
     }
 
     private void castMagicTargetDamage() throws IOException {
-        if (card1 >= 0 && card2 >= 0) {
+        if (magicCard >= 0 && card2 >= 0) {
             System.out.println("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
             ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
         }

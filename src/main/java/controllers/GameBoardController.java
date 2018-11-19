@@ -45,7 +45,7 @@ public class GameBoardController implements Initializable {
     private ActionClass action;
     GameDto gameDto;
     List<CreatureCard> playerCards, enemyCards;
-    int playerHp, enemyHp;
+    double playerHp, enemyHp;
     private String currentPlayer;
     private boolean playerOneTurn;
     private InfoPrinterController infoPrinterController;
@@ -158,10 +158,12 @@ public class GameBoardController implements Initializable {
     }
 
     private void printPlayerInfo() {
-        PLAYER_HP_PROGRESSBAR.setProgress(playerHp / 10);
+        PLAYER_HP_PROGRESSBAR.setProgress((playerHp * 0.05));
         PLAYER_NAME.setText(ClientGame.getPlayer());
-        ENEMY_HP_PROGRESSBAR.setProgress(enemyHp / 10);
+        ENEMY_HP_PROGRESSBAR.setProgress((enemyHp * 0.05));
         GAME_ROUND.setText(Integer.toString(ClientGame.getDto().getRound()));
+        System.out.println("Player 1hp "+ playerHp);
+        System.out.println("Player 2hp "+ enemyHp);
     }
 
     private void getPlayerAndPlayerTurn() {
@@ -169,14 +171,14 @@ public class GameBoardController implements Initializable {
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
         switch (currentPlayer) {
-            case " player1":
+            case "player1":
                 if (!playerOneTurn) {
                     END_TURN_BTN.setDisable(true);
                 } else {
                     END_TURN_BTN.setDisable(false);
                 }
                 break;
-            case " player2":
+            case "player2":
                 if (playerOneTurn) {
                     END_TURN_BTN.setDisable(true);
                 } else {
