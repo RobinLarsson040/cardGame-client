@@ -4,6 +4,9 @@ package controllers;
 import client.ActionClass;
 import client.ClientGame;
 import entities.CreatureCard;
+import entities.GameCard;
+import entities.Magic;
+import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -12,6 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
 import java.io.IOException;
+import java.util.List;
 
 public class CreatureCardController {
 
@@ -30,8 +34,10 @@ public class CreatureCardController {
     private boolean isUsed;
     private String currentPlayer;
     private boolean playerOneTurn;
+    private boolean magicCardOnHand;
 
     public void setValues(CreatureCard card, int index, String value) {
+        checkIfHandContainsMagicCards();
         this.table = value;
         this.index = index;
         this.isUsed = card.getIsUsed();
@@ -41,15 +47,15 @@ public class CreatureCardController {
         CARD_CD.setText(Integer.toString(card.getCoolDown()));
         CARD_DP.setText(Integer.toString(card.getDefencePoint()));
         CARD_AT.setText(card.getAttackType());
-//        checkIfUsedAndDisable();
+        checkIfUsedAndDisable();
         getPlayerAndPlayerTurn();
     }
 
-    /*private void checkIfUsedAndDisable() {
-        if (isUsed && table.equals("playerTable") && !magicCardsOnHand) {
+    private void checkIfUsedAndDisable() {
+        if (isUsed && table.equals("playerTable") && !magicCardOnHand) {
             CREATURE_CARD.setDisable(true);
         }
-    }*/
+    }
 
     public void onClick() throws IOException {
         switch (table) {
@@ -104,6 +110,15 @@ public class CreatureCardController {
                     this.CREATURE_CARD.setDisable(true);
                 }
                 break;
+        }
+    }
+
+    private void checkIfHandContainsMagicCards() {
+        List<GameCard> cardsOnHand = ClientGame.getDto().getCardsOnHand();
+        for (GameCard card : cardsOnHand) {
+            if (card instanceof MagicCard) {
+                magicCardOnHand = true;
+            }
         }
     }
 

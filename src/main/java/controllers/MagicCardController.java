@@ -38,9 +38,9 @@ public class MagicCardController {
         this.MAGIC_CARD_AP.setText(Integer.toString(card.getAttackPoints()));
 //        this.MAGIC_CARD_EC.setText(Integer.toString(card.));
         if (value.contains("ONE")) {
-            this.MAGIC_CARD_TYPE.setText("INSTANT");
-        } else {
             this.MAGIC_CARD_TYPE.setText("TARGET");
+        } else {
+            this.MAGIC_CARD_TYPE.setText("INSTANT");
         }
         this.cardType = value;
         tooltip.setText(setToolTipText());
@@ -88,7 +88,7 @@ public class MagicCardController {
             case "DAMAGEPLAYER":
                 value = "Attack Enemy";
                 break;
-            case "HEALWHOLETABLE":
+            case "HEALALLCARDS":
                 value = " Heal all your Cards On Table";
                 break;
             case "HEALONECARD":
