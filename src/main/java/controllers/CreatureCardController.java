@@ -23,7 +23,7 @@ public class CreatureCardController {
     @FXML
     private AnchorPane CREATURE_CARD;
     @FXML
-    private Label CARD_NAME, CARD_HP, CARD_CD, CARD_DP, CARD_AP;
+    private Label CARD_NAME, CARD_HP, CARD_CD, CARD_DP, CARD_AP, CARD_AT;
 
     private int index;
     private String table;
@@ -40,6 +40,7 @@ public class CreatureCardController {
         CARD_AP.setText(Integer.toString(card.getAttackPoints()));
         CARD_CD.setText(Integer.toString(card.getCoolDown()));
         CARD_DP.setText(Integer.toString(card.getDefencePoint()));
+        CARD_AT.setText(card.getAttackType());
         checkIfUsedAndDisable();
         getPlayerAndPlayerTurn();
     }

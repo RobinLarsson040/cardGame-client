@@ -30,10 +30,15 @@ public class MagicCardController {
     public void setValues(MagicCard card, int index, String value) {
         this.MAGIC_CARD_TYPE.setText(value);
         this.index = index;
-        this.cardType = value;
         this.CARD_NAME.setText(card.getName());
         this.MAGIC_CARD_AP.setText(Integer.toString(card.getAttackPoints()));
 //        this.MAGIC_CARD_EC.setText(Integer.toString(card.));
+        if (value.contains("ONE")) {
+            this.MAGIC_CARD_TYPE.setText("INSTANT");
+        } else {
+            this.MAGIC_CARD_TYPE.setText("TARGET");
+        }
+        this.cardType = value;
     }
 
     public void onClick() throws IOException {
