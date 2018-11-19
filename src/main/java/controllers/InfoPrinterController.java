@@ -13,17 +13,22 @@ public class InfoPrinterController {
     private Label INFO_TEXT_INPUT;
 
     @FXML
+    private Label INFO_TEXT_INPUT2;
+
+    @FXML
     public void setINFO_TEXT_INPUT(String INFO_TEXT_INPUT) {
         this.INFO_TEXT_INPUT.setText(INFO_TEXT_INPUT);
     }
 
     @FXML
     public void printInfo(String text) {
+        String[] msgArray = text.split(":");
+        String msg = msgArray[1];
         System.out.println("MESSAGE TO PRINT INFO " + text);
-        INFO_TEXT_INPUT.setText(text);
+        INFO_TEXT_INPUT2.setText(msg);
         Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(3000),
-                ae -> nextPlayerTurn(ClientGame.getDto().getPlayerOneTurn())));
+                Duration.millis(4000),
+                ae -> INFO_TEXT_INPUT2.setText("")));
         timeline.play();
     }
 

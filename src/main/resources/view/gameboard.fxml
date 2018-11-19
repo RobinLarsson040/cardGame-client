@@ -78,11 +78,11 @@
             </GridPane>
                <Label fx:id="GAME_ROUND" layoutX="93.0" layoutY="103.0" prefHeight="35.0" prefWidth="14.0" text="0" textAlignment="CENTER">
                   <font>
-                     <Font size="19.0" />
+                     <Font size="15.0" />
                   </font></Label>
                <Label fx:id="GAME_ROUND1" layoutX="22.0" layoutY="103.0" prefHeight="35.0" prefWidth="65.0" text="Round:" textAlignment="CENTER">
                   <font>
-                     <Font size="19.0" />
+                     <Font size="15.0" />
                   </font>
                </Label>
                <Button fx:id="ATTACK_ENEMY_BTN" layoutX="17.0" layoutY="1.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="102.0" text="PLAYER 2" />
