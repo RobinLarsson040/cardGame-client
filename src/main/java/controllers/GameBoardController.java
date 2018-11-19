@@ -6,6 +6,7 @@ import client.ClientGame;
 import dto.GameDto;
 import entities.CreatureCard;
 import entities.GameCard;
+import entities.MagicCard;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -124,8 +125,12 @@ public class GameBoardController implements Initializable {
                 controller.setValues((CreatureCard) cardList.get(i), i, "hand");
                 CARD_GRIDPANE.addColumn(i, pane);
 
-            } else {
-                // LÄGG TILL MAGIC CARDS
+            } else if (cardList.get(i) instanceof MagicCard){
+                FXMLLoader loader = new FXMLLoader();
+                AnchorPane pane = loader.load(getClass().getResource("/view/magicCard.fxml").openStream());
+                MagicCardController controller = loader.getController();
+                controller.setValues((MagicCard) cardList.get(i), i, "hand");
+                CARD_GRIDPANE.addColumn(i, pane);
             }
         }
     }

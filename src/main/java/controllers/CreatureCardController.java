@@ -7,6 +7,7 @@ import entities.CreatureCard;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
@@ -17,9 +18,11 @@ public class CreatureCardController {
     private ActionClass action = ActionClass.getInstance();
 
     @FXML
-    public AnchorPane CREATURE_CARD;
+    private Image IMG_URL;
     @FXML
-    public Label CARD_NAME, CARD_HP;
+    private AnchorPane CREATURE_CARD;
+    @FXML
+    private Label CARD_NAME, CARD_HP;
 
     private int index;
     private String table;
