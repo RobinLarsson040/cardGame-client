@@ -41,15 +41,15 @@ public class CreatureCardController {
         CARD_CD.setText(Integer.toString(card.getCoolDown()));
         CARD_DP.setText(Integer.toString(card.getDefencePoint()));
         CARD_AT.setText(card.getAttackType());
-        checkIfUsedAndDisable();
+//        checkIfUsedAndDisable();
         getPlayerAndPlayerTurn();
     }
 
-    private void checkIfUsedAndDisable() {
-        if (isUsed && table.equals("playerTable")) {
+    /*private void checkIfUsedAndDisable() {
+        if (isUsed && table.equals("playerTable") && !magicCardsOnHand) {
             CREATURE_CARD.setDisable(true);
         }
-    }
+    }*/
 
     public void onClick() throws IOException {
         switch (table) {
