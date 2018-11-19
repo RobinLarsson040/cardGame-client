@@ -61,12 +61,12 @@ public class CreatureCardController {
 
     private void handleEnemyTable() throws IOException {
         setBorderColor();
-        action.setEnemyCard(index);
+        action.setCard2(index);
     }
 
     private void handlePlayerCardsOnTable() throws IOException {
         setBorderColor();
-        action.setPlayerCard(index);
+        action.setCard1(index);
     }
 
     private void playCardOnTable() throws IOException {
