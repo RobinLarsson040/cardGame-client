@@ -1,6 +1,5 @@
 package client;
 
-import entities.MagicCard;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -30,9 +29,11 @@ public class ActionClass implements Initializable {
     private int card1 = -1;
     private int card2 = -1;
     private int magicCard = -1;
+    private String attackType;
 
     public void setMagicCard(int magicCard, String attackType) throws IOException {
-        this.magicCard = magicCard;
+        this.magicCard = magicCard +1;
+        this.attackType = attackType;
 
         if (attackType.equals("instant")) {
             castMagicInstant();
@@ -42,10 +43,12 @@ public class ActionClass implements Initializable {
     }
 
     public void setCard1(int card1) throws IOException {
+        System.out.println(card1);
         this.card1 = card1 + 1;
-        attackPLayer();
 
-        if (magicCard != -1 && card1 != -1) {
+        System.out.println(magicCard);
+
+        if (magicCard != -1 && card1 != -1 && attackType.equals("heal")) {
             castMagicTargetHeal();
             resetCards();
         }
@@ -56,7 +59,7 @@ public class ActionClass implements Initializable {
         if (card1 != -1 && card2 != -1) {
             attack();
             resetCards();
-        } else if (card2 != -1 && magicCard != -1) {
+        } else if (card2 != -1 && magicCard != -1 && attackType.equals("damage") ) {
             castMagicTargetDamage();
             resetCards();
         }
@@ -71,14 +74,14 @@ public class ActionClass implements Initializable {
     }
 
     private void castMagicInstant() throws IOException {
-        if (card1 >= 0) {
-            System.out.println("CAST_MAGIC_INSTANT:" + card1);
-            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_INSTANT:" + card1);
+        if (magicCard >= 0) {
+            System.out.println("CAST_MAGIC_INSTANT:" + magicCard);
+            ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_INSTANT:" + magicCard);
         }
     }
 
     private void castMagicTargetDamage() throws IOException {
-        if (card1 >= 0 && card2 >= 0) {
+        if (magicCard >= 0 && card2 >= 0) {
             System.out.println("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
             ClientGame.getClientNetwork().sendMessage("CAST_MAGIC_TARGET_DAMAGE:" + magicCard + ":" + card2);
         }
@@ -102,19 +105,19 @@ public class ActionClass implements Initializable {
         ClientGame.getClientNetwork().sendMessage("END_TURN");
     }
 
-    private void attackPLayer() throws IOException {
+    public void attackPlayer() throws IOException {
         currentPlayer = ClientGame.getPlayer();
         playerOneTurn = ClientGame.getDto().getPlayerOneTurn();
 
         switch (currentPlayer) {
-            case " player1":
+            case "player1":
                 if (playerOneTurn) {
                     if (ClientGame.getDto().getPlayer2CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
                         ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:" + card1);
                     }
                 }
                 break;
-            case " player2":
+            case "player2":
                 if (!playerOneTurn) {
                     if (ClientGame.getDto().getPlayer1CardsOnTable().size() == 0 && ClientGame.getDto().getTurn() > 1) {
                         ClientGame.getClientNetwork().sendMessage("ATTACK_PLAYER:" + card1);

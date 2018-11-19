@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="MAGIC_CARD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="119.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MagicCardController">
+<AnchorPane fx:id="MAGIC_CARD" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onClick" prefHeight="170.0" prefWidth="119.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MagicCardController">
    <children>
       <ImageView fitHeight="170.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,8 +20,7 @@
       <Label fx:id="ATTACK_POINTS" layoutX="77.0" layoutY="65.0" text="Label" />
       <Label layoutX="9.0" layoutY="100.0" text="Label" />
       <Label fx:id="MAGIC_METHOD" layoutX="71.0" layoutY="100.0" text="Label" />
-      <Label layoutX="9.0" layoutY="129.0" text="Type" />
-      <Label fx:id="MAGIC_CARD_TYPE" layoutX="60.0" layoutY="129.0" text="Label" />
+      <Label fx:id="MAGIC_CARD_TYPE" layoutX="9.0" layoutY="129.0" prefHeight="17.0" prefWidth="101.0" text="Label" />
 
    </children>
 </AnchorPane>
