@@ -17,6 +17,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 
 import java.io.IOException;
@@ -42,6 +43,8 @@ public class GameBoardController implements Initializable {
     public Button ATTACK_ENEMY_BTN;
     @FXML
     public Button END_TURN_BTN;
+    @FXML
+    private Label CARDS_IN_DECK;
 
     private ActionClass action;
     GameDto gameDto;
@@ -185,6 +188,8 @@ public class GameBoardController implements Initializable {
         PLAYER_NAME.setText(ClientGame.getPlayer());
         ENEMY_HP_PROGRESSBAR.setProgress((enemyHp * 0.05));
         GAME_ROUND.setText(Integer.toString(ClientGame.getDto().getRound()));
+        CARDS_IN_DECK.setTextFill(Color.PURPLE);
+        CARDS_IN_DECK.setText(Integer.toString(ClientGame.getDto().getCardsLeftInDeck()));
     }
 
     private void getPlayerAndPlayerTurn() {

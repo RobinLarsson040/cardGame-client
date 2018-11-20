@@ -42,6 +42,11 @@
                <children>
                   <Button fx:id="END_TURN_BTN" layoutX="42.0" layoutY="110.0" mnemonicParsing="false" prefHeight="77.0" prefWidth="126.0" text="END TURN" />
                </children></AnchorPane>
+            <Label layoutX="15.0" layoutY="117.0" text="CARDS IN DECK" />
+            <Label fx:id="CARDS_IN_DECK" layoutX="38.0" layoutY="140.0" prefHeight="43.0" prefWidth="55.0" text="00">
+               <font>
+                  <Font size="43.0" />
+               </font></Label>
          </children></AnchorPane>
    </bottom>
    <center>
