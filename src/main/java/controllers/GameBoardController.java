@@ -46,6 +46,9 @@ public class GameBoardController implements Initializable {
     @FXML
     private Label CARDS_IN_DECK;
 
+    private String playerName;
+    private String ip_Adress;
+
     private ActionClass action;
     GameDto gameDto;
     List<CreatureCard> playerCards, enemyCards;
@@ -53,6 +56,15 @@ public class GameBoardController implements Initializable {
     private String currentPlayer;
     private boolean playerOneTurn;
     private InfoPrinterController infoPrinterController;
+
+
+    public void setConnectionParam(String playerName, String ip_Adress) {
+        this.playerName = playerName;
+        this.ip_Adress = ip_Adress;
+    }
+
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
