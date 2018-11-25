@@ -19,7 +19,7 @@ public class ClientMain extends Application {
         loader = new FXMLLoader(getClass().getResource("/view/menu.fxml"));
         parent = loader.load();
         primaryStage.setTitle("CARD GAME");
-        primaryStage.setScene(new Scene(parent, 1200, 700));
+        primaryStage.setScene(new Scene(parent, 434, 351));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

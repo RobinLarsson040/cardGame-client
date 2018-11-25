@@ -22,8 +22,8 @@ public class MenuController {
 
 
     public void openHighScore() throws IOException {
-//        AnchorPane pane = FXMLLoader.load(getClass().getResource("/highScore.fxml"));
-//        MENU_BTN_ANCHOR_PANE.getChildren().setAll(pane);
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/highScore.fxml"));
+        SIDE_PANE.getChildren().setAll(pane);
     }
 
     public void startNewGame() throws IOException {

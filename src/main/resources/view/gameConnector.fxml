@@ -5,13 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="thPane" fx:controller="controllers.GameConnectorController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="thPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="270.0" prefHeight="350.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GameConnectorController">
    <children>
-      <TextField fx:id="PLAYER_NAME_INPUT" layoutX="362.0" layoutY="276.0" />
-      <TextField fx:id="IP_INPUT" layoutX="362.0" layoutY="337.0" />
-      <Label layoutX="406.0" layoutY="248.0" text="Player Name" />
-      <Label layoutX="412.0" layoutY="313.0" text="IP Address" />
-      <Button fx:id="CONNECT_TO_GAME_BTN" onAction="#startNewGame" layoutX="416.0" layoutY="402.0" mnemonicParsing="false" text="Connect" />
+      <TextField fx:id="PLAYER_NAME_INPUT" layoutX="52.0" layoutY="113.0" />
+      <TextField fx:id="IP_INPUT" layoutX="52.0" layoutY="174.0" />
+      <Label layoutX="96.0" layoutY="85.0" text="Player Name" />
+      <Label layoutX="102.0" layoutY="150.0" text="IP Address" />
+      <Button fx:id="CONNECT_TO_GAME_BTN" layoutX="106.0" layoutY="239.0" mnemonicParsing="false" onAction="#startNewGame" text="Connect" />
    </children>
 </AnchorPane>
