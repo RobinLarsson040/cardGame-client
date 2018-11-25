@@ -29,7 +29,6 @@ public class ClientMain extends Application {
    /*     Thread thread = new Thread(() -> {
             try {
                 ClientGame clientGame = new ClientGame("localhost", 6666, controller);
-//                ClientGame clientGame = new ClientGame("10.155.90.109", 6666, controller);
             } catch (IOException e) {
                 e.printStackTrace();
             }
