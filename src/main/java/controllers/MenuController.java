@@ -16,13 +16,9 @@ public class MenuController {
     @FXML
     private ImageView SOUND_TOGGLE;
     @FXML
-    private AnchorPane SIDE_PANE;
+    private AnchorPane SIDE_PANE, MENU_BTN_ANCHOR_PANE;
     @FXML
-    private AnchorPane MENU_BTN_ANCHOR_PANE;
-    @FXML
-    private Button NEW_GAME_BTN;
-    @FXML
-    private Button HIGH_SCORE_BTN;
+    private Button NEW_GAME_BTN, HIGH_SCORE_BTN;
 
     javafx.scene.image.Image soundOn = new javafx.scene.image.Image(getClass().getResource("/img/soundOn.png").toExternalForm());
     javafx.scene.image.Image soundOff = new javafx.scene.image.Image(getClass().getResource("/img/soundOff.png").toExternalForm());

@@ -22,6 +22,7 @@ public class GameConnectorController {
     GameBoardController controller;
 
     ClientGame clientGame;
+
     public void startNewGame(ActionEvent event) throws IOException {
         SoundPlayer.getInstance().buttonClicked();
         Stage stage = new Stage();
@@ -30,15 +31,15 @@ public class GameConnectorController {
         controller = loader.getController();
         openConnectsion();
         controller.setConnectionParam(PLAYER_NAME_INPUT.getText(), IP_INPUT.getText());
-        stage.setScene(new Scene(pane, 1200, 700 ));
+        stage.setScene(new Scene(pane, 1200, 700));
         stage.show();
-        ((Node)(event.getSource())).getScene().getWindow().hide();
+        ((Node) (event.getSource())).getScene().getWindow().hide();
     }
 
     private void openConnectsion() {
         Thread thread = new Thread(() -> {
             try {
-                ClientGame clientGame = new ClientGame("localhost", 6666, controller);
+                ClientGame clientGame = new ClientGame("Robin","localhost", 6666, controller);
 //                ClientGame clientGame = new ClientGame("10.155.90.109", 6666, controller);
             } catch (IOException e) {
                 e.printStackTrace();

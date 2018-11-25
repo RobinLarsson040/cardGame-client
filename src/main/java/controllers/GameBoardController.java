@@ -36,26 +36,17 @@ public class GameBoardController implements Initializable {
     @FXML
     public ProgressBar PLAYER_HP_PROGRESSBAR, ENEMY_HP_PROGRESSBAR;
     @FXML
-    public Label PLAYER_NAME;
-    @FXML
-    private AnchorPane SOUND_PANE;
+    private AnchorPane SOUND_PANE, infoPan, CARDS_ON_TABLE;
     @FXML
     private ImageView SOUND_IMAGE;
     @FXML
     private BorderPane GAME_BOARD;
     @FXML
-    private AnchorPane infoPan, CARDS_ON_TABLE;
+    private Label GAME_ROUND, CARDS_IN_DECK, PLAYER_NAME;
     @FXML
-    private Label GAME_ROUND;
-    @FXML
-    public Button ATTACK_ENEMY_BTN;
-    @FXML
-    public Button END_TURN_BTN;
-    @FXML
-    private Label CARDS_IN_DECK;
+    public Button ATTACK_ENEMY_BTN, END_TURN_BTN;
 
-    private String playerName;
-    private String ip_Adress;
+    private String playerName, ip_Adress;
 
     private ActionClass action;
     GameDto gameDto;
@@ -66,9 +57,6 @@ public class GameBoardController implements Initializable {
     private InfoPrinterController infoPrinterController;
     javafx.scene.image.Image soundOn = new javafx.scene.image.Image(getClass().getResource("/img/soundOn.png").toExternalForm());
     javafx.scene.image.Image soundOff = new javafx.scene.image.Image(getClass().getResource("/img/soundOff.png").toExternalForm());
-//    private Image soundOn;
-//    private Image soundOff;
-
 
     public void setConnectionParam(String playerName, String ip_Adress) {
         this.playerName = playerName;

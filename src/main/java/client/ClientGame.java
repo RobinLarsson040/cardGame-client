@@ -39,9 +39,9 @@ public class ClientGame extends Thread {
     GameBoardController controller;
     static String messageToScreen;
     List highScore;
+    String name;
 
-
-    public ClientGame(String address, int port, GameBoardController controller) throws IOException {
+    public ClientGame(String name,String address, int port, GameBoardController controller) throws IOException {
         this.clientNetwork = new ClientNetwork();
         clientNetwork.startConnection(address, port);
         this.controller = controller;
@@ -50,6 +50,8 @@ public class ClientGame extends Thread {
         highScore = new ArrayList();
         receiveMsg.start();
         sendMsgLoopTemp();
+        this.name = name;
+        clientNetwork.getOut().println("NAME:"+name);
     }
 
     private Thread receiveMsg = new Thread() {
