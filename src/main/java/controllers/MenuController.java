@@ -30,7 +30,7 @@ public class MenuController {
 
     public void openHighScore() throws IOException {
         buttonClicked();
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/highScore.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/view/highscore.fxml"));
         SIDE_PANE.getChildren().setAll(pane);
     }
 

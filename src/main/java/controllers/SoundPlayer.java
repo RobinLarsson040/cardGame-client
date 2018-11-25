@@ -22,7 +22,7 @@ public class SoundPlayer {
     }
 
     private final java.net.URL THEME_SONG = getClass().getResource("/sound/adventurers.MP3");
-    private final java.net.URL BTN_CLICK = getClass().getResource("/sound/btnClick.MP3");
+    private final java.net.URL BTN_CLICK = getClass().getResource("/sound/btnClick.mp3");
     private final java.net.URL CREATURE_CARD_SELECT = getClass().getResource("/sound/click.mp3");
     private final java.net.URL MAGIC_CARD_SELECT = getClass().getResource("/sound/magicSelect.wav");
     private final java.net.URL TABLE_PICK = getClass().getResource("/sound/tablePick.wav");

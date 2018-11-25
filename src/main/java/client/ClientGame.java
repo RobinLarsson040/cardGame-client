@@ -39,17 +39,20 @@ public class ClientGame extends Thread {
     GameBoardController controller;
     static String messageToScreen;
     List highScore;
+    String name;
 
 
-    public ClientGame(String address, int port, GameBoardController controller) throws IOException {
+    public ClientGame(String name,String address, int port, GameBoardController controller) throws IOException {
         this.clientNetwork = new ClientNetwork();
         clientNetwork.startConnection(address, port);
         this.controller = controller;
         objectMapper = new ObjectMapper();
         scanner = new Scanner(System.in);
         highScore = new ArrayList();
+        clientNetwork.sendMessage(name);
+        System.out.println("Name: "+ name);
         receiveMsg.start();
-        sendMsgLoopTemp();
+        this.name = name;
     }
 
     private Thread receiveMsg = new Thread() {
