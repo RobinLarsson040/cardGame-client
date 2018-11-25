@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,6 +38,7 @@ public class ClientGame extends Thread {
     static GameDto gameData;
     GameBoardController controller;
     static String messageToScreen;
+    List highScore;
 
 
     public ClientGame(String address, int port, GameBoardController controller) throws IOException {
@@ -45,6 +47,7 @@ public class ClientGame extends Thread {
         this.controller = controller;
         objectMapper = new ObjectMapper();
         scanner = new Scanner(System.in);
+        highScore = new ArrayList();
         receiveMsg.start();
         sendMsgLoopTemp();
     }
@@ -62,13 +65,16 @@ public class ClientGame extends Thread {
                     String[] playerString = msgFromServer.split(":");
                     player = playerString[1];
                     System.out.println("YOU ARE PLAYER: " + player);
+                } else if (msgFromServer.startsWith("HIGHSCORE")) {
+                    deserializeHighScoreFromServer(msgFromServer);
+
                 } else if (msgFromServer.startsWith("MESSAGE")) {
                     messageToScreen = msgFromServer;
                     controller.updateMessage();
                 } else if (msgFromServer.startsWith("ERROR")) {
                     messageToScreen = msgFromServer;
                     controller.updateMessage();
-                } else {
+                } else if (msgFromServer.startsWith("GUI:")) {
                     try {
                         deserializeMsgFromServer(msgFromServer);
                     } catch (IOException e) {
@@ -95,6 +101,15 @@ public class ClientGame extends Thread {
 
         controller.update();
 
+    }
+
+    private void deserializeHighScoreFromServer(String highScoreString) {
+        highScoreString = highScoreString.replace("HIGHSCORE:", "");
+        for (String placement : highScoreString.split(",")) {
+            highScore.add(placement);
+        }
+        System.out.println("HIGH-SCORE CLIENT " + highScore.toString());
+        ////ladda highscore som är sparat i "highScore" listan
     }
 
     public static GameDto getDto() {
