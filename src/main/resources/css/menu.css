@@ -1,0 +1,4 @@
+#menu {
+    -fx-background-size: cover, auto;
+    -fx-background-image: url("../img/forest.jpg")
+}

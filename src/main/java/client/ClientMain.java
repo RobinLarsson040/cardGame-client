@@ -1,6 +1,7 @@
 package client;
 
 import controllers.GameBoardController;
+import controllers.SoundPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ import java.io.IOException;
 
 
 public class ClientMain extends Application {
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -26,6 +28,7 @@ public class ClientMain extends Application {
 
 
     public static void main(String[] args) {
+
    /*     Thread thread = new Thread(() -> {
             try {
                 ClientGame clientGame = new ClientGame("localhost", 6666, controller);
@@ -35,6 +38,8 @@ public class ClientMain extends Application {
         });
         thread.start();
     }*/
+        SoundPlayer.getInstance().playThemeSong();
+
         launch(args);
     }
 }

@@ -23,6 +23,7 @@ public class GameConnectorController {
 
     ClientGame clientGame;
     public void startNewGame(ActionEvent event) throws IOException {
+        SoundPlayer.getInstance().buttonClicked();
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader();
         BorderPane pane = loader.load(getClass().getResource("/view/gameboard.fxml").openStream());

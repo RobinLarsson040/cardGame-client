@@ -9,8 +9,8 @@
    <children>
       <TextField fx:id="PLAYER_NAME_INPUT" layoutX="52.0" layoutY="113.0" />
       <TextField fx:id="IP_INPUT" layoutX="52.0" layoutY="174.0" />
-      <Label layoutX="96.0" layoutY="85.0" text="Player Name" />
-      <Label layoutX="102.0" layoutY="150.0" text="IP Address" />
+      <Label layoutX="96.0" layoutY="85.0" text="Player Name" textFill="#101011" />
+      <Label layoutX="102.0" layoutY="150.0" text="IP Address" textFill="#030303" />
       <Button fx:id="CONNECT_TO_GAME_BTN" layoutX="106.0" layoutY="239.0" mnemonicParsing="false" onAction="#startNewGame" text="Connect" />
    </children>
 </AnchorPane>

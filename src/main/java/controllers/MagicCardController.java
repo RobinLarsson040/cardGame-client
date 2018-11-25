@@ -50,6 +50,7 @@ public class MagicCardController {
     }
 
     public void onClick() throws IOException {
+        SoundPlayer.getInstance().magicCardClicked();
         setBorderColor();
         if (cardType.equals("DAMAGEALLCARDS")
                 || cardType.equals("HEALALLCARDS")

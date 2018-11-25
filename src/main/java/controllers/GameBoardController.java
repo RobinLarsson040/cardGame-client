@@ -14,12 +14,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -33,6 +37,10 @@ public class GameBoardController implements Initializable {
     public ProgressBar PLAYER_HP_PROGRESSBAR, ENEMY_HP_PROGRESSBAR;
     @FXML
     public Label PLAYER_NAME;
+    @FXML
+    private AnchorPane SOUND_PANE;
+    @FXML
+    private ImageView SOUND_IMAGE;
     @FXML
     private BorderPane GAME_BOARD;
     @FXML
@@ -56,6 +64,10 @@ public class GameBoardController implements Initializable {
     private String currentPlayer;
     private boolean playerOneTurn;
     private InfoPrinterController infoPrinterController;
+    javafx.scene.image.Image soundOn = new javafx.scene.image.Image(getClass().getResource("/img/soundOn.png").toExternalForm());
+    javafx.scene.image.Image soundOff = new javafx.scene.image.Image(getClass().getResource("/img/soundOff.png").toExternalForm());
+//    private Image soundOn;
+//    private Image soundOff;
 
 
     public void setConnectionParam(String playerName, String ip_Adress) {
@@ -64,17 +76,19 @@ public class GameBoardController implements Initializable {
     }
 
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         action = ActionClass.getInstance();
+        SOUND_IMAGE.setImage(soundOn);
         try {
             loadPrintComponent();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
         ATTACK_ENEMY_BTN.setOnAction((event -> {
+            SoundPlayer.getInstance().buttonClicked();
             try {
                 action.attackPlayer();
             } catch (IOException e) {
@@ -83,6 +97,7 @@ public class GameBoardController implements Initializable {
         }));
 
         END_TURN_BTN.setOnAction((event -> {
+            SoundPlayer.getInstance().buttonClicked();
             try {
                 action.endTurn();
             } catch (IOException e) {
@@ -98,6 +113,7 @@ public class GameBoardController implements Initializable {
             new Thread(() -> {
                 Platform.runLater(() -> {
                     try {
+
                         getPlayerAndPlayerTurn();
                         infoPrinterController.nextPlayerTurn(playerOneTurn);
                         assignCards();
@@ -234,4 +250,12 @@ public class GameBoardController implements Initializable {
     }
 
 
+    public void soundToggle() {
+        String value = SoundPlayer.getInstance().themeSongToggle();
+        if (value.equals("soundOn")) {
+            SOUND_IMAGE.setImage(soundOn);
+        } else {
+            SOUND_IMAGE.setImage(soundOff);
+        }
+    }
 }
