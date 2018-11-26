@@ -54,6 +54,7 @@ public class GameBoardController implements Initializable {
     private boolean playerOneTurn;
     private InfoPrinterController infoPrinterController;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         action = ActionClass.getInstance();
