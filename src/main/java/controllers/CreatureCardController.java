@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
@@ -20,10 +21,11 @@ import java.util.List;
 public class CreatureCardController {
 
 
+
     private ActionClass action = ActionClass.getInstance();
 
     @FXML
-    private Image IMG_URL;
+    private ImageView IMG_URL;
     @FXML
     private AnchorPane CREATURE_CARD;
     @FXML
@@ -39,10 +41,13 @@ public class CreatureCardController {
     DropShadow borderGlow;
 
     public void setValues(CreatureCard card, int index, String value) {
+        System.out.println("/img/"+ card.getImageUrl());
+        javafx.scene.image.Image image = new javafx.scene.image.Image(getClass().getResource("/img" + card.getImageUrl() ).toExternalForm());
         checkIfHandContainsMagicCards();
         this.table = value;
         this.index = index;
         this.isUsed = card.getIsUsed();
+        IMG_URL.setImage(image);
         CARD_NAME.setText(card.getName());
         CARD_HP.setText(Integer.toString(card.getHp()));
         CARD_AP.setText(Integer.toString(card.getAttackPoints()));
