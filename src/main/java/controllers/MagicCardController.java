@@ -34,7 +34,7 @@ public class MagicCardController {
 
 
     public void setValues(MagicCard card, int index, String value) {
-        javafx.scene.image.Image image = new javafx.scene.image.Image(getClass().getResource("/img" + card.getImageUrl() ).toExternalForm());
+        javafx.scene.image.Image image = new javafx.scene.image.Image(getClass().getResource("/img/magicCards/" + card.getImageUrl() ).toExternalForm());
         this.MAGIC_CARD_TYPE.setText(value);
         this.index = index;
         this.CARD_NAME.setText(card.getName());

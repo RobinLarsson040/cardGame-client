@@ -10,7 +10,7 @@
    <children>
       <ImageView fx:id="IMG_URL" fitHeight="170.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/img/images/demonhunter.jpg" />
+            <Image url="@/img/creatureCards/demonhunter.jpg" />
          </image>
       </ImageView>
       <Label fx:id="CARD_NAME" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="3.0" prefHeight="9.0" prefWidth="106.0" text="CardName" textAlignment="CENTER">
@@ -18,9 +18,9 @@
             <Font size="12.0" />
          </font></Label>
       <Label fx:id="CARD_CD" alignment="CENTER" layoutX="34.0" layoutY="116.0" prefHeight="17.0" prefWidth="17.0" text="00" />
-      <Label fx:id="CARD_DP" alignment="CENTER" layoutX="87.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
+      <Label fx:id="CARD_DP" alignment="CENTER" layoutX="34.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
       <Label fx:id="CARD_AP" alignment="CENTER" layoutX="87.0" layoutY="116.0" prefHeight="17.0" prefWidth="17.0" text="00" />
-      <Label fx:id="CARD_HP" alignment="CENTER" layoutX="34.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
+      <Label fx:id="CARD_HP" alignment="CENTER" layoutX="87.0" layoutY="139.0" prefHeight="17.0" prefWidth="17.0" text="00" />
       <Label fx:id="CARD_AT" alignment="CENTER" layoutX="1.0" layoutY="102.0" prefHeight="10.0" prefWidth="119.0" text="Attack Type" textAlignment="CENTER">
          <font>
             <Font size="9.0" />

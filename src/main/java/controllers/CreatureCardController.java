@@ -41,8 +41,7 @@ public class CreatureCardController {
     DropShadow borderGlow;
 
     public void setValues(CreatureCard card, int index, String value) {
-        System.out.println("/img/"+ card.getImageUrl());
-        javafx.scene.image.Image image = new javafx.scene.image.Image(getClass().getResource("/img" + card.getImageUrl() ).toExternalForm());
+        javafx.scene.image.Image image = new javafx.scene.image.Image(getClass().getResource("/img/creatureCards/" + card.getImageUrl() ).toExternalForm());
         checkIfHandContainsMagicCards();
         this.table = value;
         this.index = index;

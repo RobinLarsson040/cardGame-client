@@ -38,7 +38,7 @@ public class ClientGame extends Thread {
     static GameDto gameData;
     GameBoardController controller;
     static String messageToScreen;
-    static List highScore;
+    static List<String> highScore;
     String name;
     String winMessage;
 
@@ -120,11 +120,9 @@ public class ClientGame extends Thread {
         highScoreString = highScoreString.replace("]", "");
         highScoreString = highScoreString.replace("=", "  ");
         System.out.println(highScoreString);
-       /* for (String placement : highScoreString.split(",")) {
+        for (String placement : highScoreString.split(",")) {
             highScore.add(placement);
         }
-        System.out.println("HIGH-SCORE CLIENT " + highScore.toString());
-        ////ladda highscore som är sparat i "highScore" listan*/
     }
 
     private void deserializeWinMessageFromServer(String winString) throws IOException {
@@ -145,7 +143,7 @@ public class ClientGame extends Thread {
         return messageToScreen;
     }
 
-    public  static List getHighScore() {return highScore; }
+    public  static List<String> getHighScore() {return highScore; }
 
 
 }

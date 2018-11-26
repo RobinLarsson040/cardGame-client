@@ -26,11 +26,13 @@ public class SoundPlayer {
     private final java.net.URL CREATURE_CARD_SELECT = getClass().getResource("/sound/click.mp3");
     private final java.net.URL MAGIC_CARD_SELECT = getClass().getResource("/sound/magicSelect.wav");
     private final java.net.URL TABLE_PICK = getClass().getResource("/sound/tablePick.wav");
+    private final java.net.URL TADA = getClass().getResource("/sound/TADA.mp3");
     private MediaPlayer themePlayer;
     private MediaPlayer btnCLick;
     private MediaPlayer creatureCardCLick;
     private MediaPlayer magicCardCLick;
     private MediaPlayer tableCardPick;
+    private MediaPlayer tada;
     private boolean themeSongPlaying = false;
 
     public boolean isThemeSongPlaying() {
@@ -67,6 +69,12 @@ public class SoundPlayer {
         Media sound = new Media(TABLE_PICK.toString());
         tableCardPick = new MediaPlayer(sound);
         tableCardPick.play();
+    }
+
+    public void playTada() {
+        Media sound = new Media(TADA.toString());
+        tada = new MediaPlayer(sound);
+        tada.play();
     }
 
 

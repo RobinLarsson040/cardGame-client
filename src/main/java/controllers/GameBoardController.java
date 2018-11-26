@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,6 +27,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -265,6 +268,7 @@ public class GameBoardController implements Initializable {
                 controller.setParams(name);
                 stage.setScene(new Scene(pane, 516, 681 ));
                 stage.show();
+                ATTACK_ENEMY_BTN.getScene().getWindow().hide();
 
             } catch (IOException e) {
                 e.printStackTrace();
