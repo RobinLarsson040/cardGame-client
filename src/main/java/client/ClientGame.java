@@ -40,9 +40,10 @@ public class ClientGame extends Thread {
     static String messageToScreen;
     static List highScore;
     String name;
+    String winMessage;
 
 
-    public ClientGame(String name,String address, int port, GameBoardController controller) throws IOException {
+    public ClientGame(String name, String address, int port, GameBoardController controller) throws IOException {
         this.clientNetwork = new ClientNetwork();
         System.out.println(address);
         clientNetwork.startConnection(address, port);
@@ -51,7 +52,7 @@ public class ClientGame extends Thread {
         scanner = new Scanner(System.in);
         highScore = new ArrayList();
         clientNetwork.sendMessage(name);
-        System.out.println("Name: "+ name);
+        System.out.println("Name: " + name);
         receiveMsg.start();
         this.name = name;
     }
@@ -71,9 +72,11 @@ public class ClientGame extends Thread {
                     System.out.println("YOU ARE PLAYER: " + player);
                 } else if (msgFromServer.startsWith("HIGHSCORE")) {
                     deserializeHighScoreFromServer(msgFromServer);
-
                 } else if (msgFromServer.startsWith("MESSAGE")) {
                     messageToScreen = msgFromServer;
+                    controller.updateMessage();
+                } else if (msgFromServer.startsWith("WIN")) {
+                    deserializeWinMessageFromServer(msgFromServer);
                     controller.updateMessage();
                 } else if (msgFromServer.startsWith("ERROR")) {
                     messageToScreen = msgFromServer;
@@ -118,6 +121,11 @@ public class ClientGame extends Thread {
         }
         System.out.println("HIGH-SCORE CLIENT " + highScore.toString());
         ////ladda highscore som är sparat i "highScore" listan*/
+    }
+
+    private void deserializeWinMessageFromServer(String winString) {
+        winMessage = winString.replace("WIN:", "");
+        System.out.println(winMessage + " WON!");
     }
 
     public static GameDto getDto() {

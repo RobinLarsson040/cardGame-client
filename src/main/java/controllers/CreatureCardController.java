@@ -35,6 +35,8 @@ public class CreatureCardController {
     private String currentPlayer;
     private boolean playerOneTurn;
     private boolean magicCardOnHand;
+    Boolean isClicked = false;
+    DropShadow borderGlow;
 
     public void setValues(CreatureCard card, int index, String value) {
         checkIfHandContainsMagicCards();
@@ -58,7 +60,8 @@ public class CreatureCardController {
     }
 
     public void onClick() throws IOException {
-
+        isClicked = !isClicked;
+        System.out.println(isClicked);
         switch (table) {
             case "hand":
                 SoundPlayer.getInstance().creatureCardClicked();
@@ -75,13 +78,23 @@ public class CreatureCardController {
     }
 
     private void handleEnemyTable() throws IOException {
-        setBorderColor();
-        action.setCard2(index);
+        if (isClicked) {
+            action.setCard2(index);
+            setBorderColor();
+        } else {
+            resetBorder();
+            action.setCard2(-1);
+        }
     }
 
     private void handlePlayerCardsOnTable() throws IOException {
-        setBorderColor();
-        action.setCard1(index);
+        if (isClicked) {
+            action.setCard1(index);
+            setBorderColor();
+        } else {
+            resetBorder();
+            action.setCard1(-1);
+        }
     }
 
     private void playCardOnTable() throws IOException {
@@ -90,10 +103,21 @@ public class CreatureCardController {
 
     private void setBorderColor() {
         int depth = 70;
-        DropShadow borderGlow = new DropShadow();
+        borderGlow = new DropShadow();
         borderGlow.setOffsetY(0f);
         borderGlow.setOffsetX(0f);
         borderGlow.setColor(Color.RED);
+        borderGlow.setWidth(depth);
+        borderGlow.setHeight(depth);
+        CREATURE_CARD.setEffect(borderGlow);
+    }
+
+    private void resetBorder() {
+        int depth = 70;
+        borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.rgb(0,0,0,0));
         borderGlow.setWidth(depth);
         borderGlow.setHeight(depth);
         CREATURE_CARD.setEffect(borderGlow);

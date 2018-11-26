@@ -64,10 +64,10 @@ public class GameBoardController implements Initializable {
     private String currentPlayer;
     private boolean playerOneTurn;
     private InfoPrinterController infoPrinterController;
+
     javafx.scene.image.Image soundOn = new javafx.scene.image.Image(getClass().getResource("/img/soundOn.png").toExternalForm());
     javafx.scene.image.Image soundOff = new javafx.scene.image.Image(getClass().getResource("/img/soundOff.png").toExternalForm());
-//    private Image soundOn;
-//    private Image soundOff;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         action = ActionClass.getInstance();
