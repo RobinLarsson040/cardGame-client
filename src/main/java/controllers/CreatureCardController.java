@@ -61,6 +61,7 @@ public class CreatureCardController {
 
     public void onClick() throws IOException {
         isClicked = !isClicked;
+        System.out.println(isClicked);
         switch (table) {
             case "hand":
                 SoundPlayer.getInstance().creatureCardClicked();
@@ -78,23 +79,21 @@ public class CreatureCardController {
 
     private void handleEnemyTable() throws IOException {
         if (isClicked) {
-            action.setCard2(-1);
-            isClicked = false;
+            action.setCard2(index);
             setBorderColor();
         } else {
             resetBorder();
-            action.setCard2(index);
+            action.setCard2(-1);
         }
     }
 
     private void handlePlayerCardsOnTable() throws IOException {
         if (isClicked) {
-            action.setCard1(-1);
-            isClicked = false;
+            action.setCard1(index);
             setBorderColor();
         } else {
             resetBorder();
-            action.setCard1(index);
+            action.setCard1(-1);
         }
     }
 
@@ -114,7 +113,14 @@ public class CreatureCardController {
     }
 
     private void resetBorder() {
-        CREATURE_CARD.getChildren().remove(borderGlow);
+        int depth = 70;
+        borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.rgb(0,0,0,0));
+        borderGlow.setWidth(depth);
+        borderGlow.setHeight(depth);
+        CREATURE_CARD.setEffect(borderGlow);
     }
 
     private void getPlayerAndPlayerTurn() {
