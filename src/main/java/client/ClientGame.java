@@ -38,7 +38,7 @@ public class ClientGame extends Thread {
     static GameDto gameData;
     GameBoardController controller;
     static String messageToScreen;
-    List highScore;
+    static List highScore;
     String name;
 
 
@@ -109,11 +109,15 @@ public class ClientGame extends Thread {
 
     private void deserializeHighScoreFromServer(String highScoreString) {
         highScoreString = highScoreString.replace("HIGHSCORE:", "");
-        for (String placement : highScoreString.split(",")) {
+        highScoreString = highScoreString.replace("[", "");
+        highScoreString = highScoreString.replace("]", "");
+        highScoreString = highScoreString.replace("=", "  ");
+        System.out.println(highScoreString);
+       /* for (String placement : highScoreString.split(",")) {
             highScore.add(placement);
         }
         System.out.println("HIGH-SCORE CLIENT " + highScore.toString());
-        ////ladda highscore som är sparat i "highScore" listan
+        ////ladda highscore som är sparat i "highScore" listan*/
     }
 
     public static GameDto getDto() {
@@ -127,6 +131,8 @@ public class ClientGame extends Thread {
     public static String getMessageToScreen() {
         return messageToScreen;
     }
+
+    public  static List getHighScore() {return highScore; }
 
 
 }
