@@ -63,12 +63,15 @@ public class CreatureCardController {
         isClicked = !isClicked;
         switch (table) {
             case "hand":
+                SoundPlayer.getInstance().creatureCardClicked();
                 playCardOnTable();
                 break;
             case "playerTable":
+                SoundPlayer.getInstance().creatureCardClicked();
                 handlePlayerCardsOnTable();
                 break;
             case "enemyTable":
+                SoundPlayer.getInstance().tablePick();
                 handleEnemyTable();
         }
     }
