@@ -11,6 +11,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -21,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 
 import java.io.File;
@@ -249,5 +252,24 @@ public class GameBoardController implements Initializable {
         } else {
             SOUND_IMAGE.setImage(soundOff);
         }
+    }
+
+    public void openWinnerPage(String name){
+        Platform.runLater(() -> {
+            try {
+                System.out.println("WInnwe");
+                Stage stage = new Stage();
+                FXMLLoader loader = new FXMLLoader();
+                AnchorPane pane = loader.load(getClass().getResource("/view/winnerMessage.fxml").openStream());
+                WinnerMessageController controller = loader.getController();
+                controller.setParams(name);
+                stage.setScene(new Scene(pane, 516, 681 ));
+                stage.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
     }
 }

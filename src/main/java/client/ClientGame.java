@@ -76,7 +76,11 @@ public class ClientGame extends Thread {
                     messageToScreen = msgFromServer;
                     controller.updateMessage();
                 } else if (msgFromServer.startsWith("WIN")) {
-                    deserializeWinMessageFromServer(msgFromServer);
+                    try {
+                        deserializeWinMessageFromServer(msgFromServer);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     controller.updateMessage();
                 } else if (msgFromServer.startsWith("ERROR")) {
                     messageToScreen = msgFromServer;
@@ -123,9 +127,10 @@ public class ClientGame extends Thread {
         ////ladda highscore som är sparat i "highScore" listan*/
     }
 
-    private void deserializeWinMessageFromServer(String winString) {
+    private void deserializeWinMessageFromServer(String winString) throws IOException {
         winMessage = winString.replace("WIN:", "");
         System.out.println(winMessage + " WON!");
+        controller.openWinnerPage(winMessage);
     }
 
     public static GameDto getDto() {

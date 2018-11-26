@@ -74,6 +74,7 @@ public class HighScoreController extends Application implements Initializable {
             }
 
             st.close();
+            conn.close();
         }
         catch(Exception e)
         {
