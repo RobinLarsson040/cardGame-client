@@ -44,6 +44,7 @@ public class ClientGame extends Thread {
 
     public ClientGame(String name,String address, int port, GameBoardController controller) throws IOException {
         this.clientNetwork = new ClientNetwork();
+        System.out.println(address);
         clientNetwork.startConnection(address, port);
         this.controller = controller;
         objectMapper = new ObjectMapper();

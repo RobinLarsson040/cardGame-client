@@ -1,7 +1,6 @@
 package controllers;
 
 import client.ClientGame;
-import entities.MagicCard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -36,17 +35,16 @@ public class GameConnectorController {
         FXMLLoader loader = new FXMLLoader();
         BorderPane pane = loader.load(getClass().getResource("/view/gameboard.fxml").openStream());
         controller = loader.getController();
-        openConnectsion();
-        controller.setConnectionParam(playerName, ipAddress);
+        openConnection();
         stage.setScene(new Scene(pane, 1200, 700 ));
         stage.show();
         ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 
-    private void openConnectsion() {
+    private void openConnection() {
         Thread thread = new Thread(() -> {
             try {
-                ClientGame clientGame = new ClientGame("Robin","localhost", 6666, controller);
+                ClientGame clientGame = new ClientGame(playerName,ipAddress, 6666, controller);
 //                ClientGame clientGame = new ClientGame("10.155.90.109", 6666, controller);
             } catch (IOException e) {
                 e.printStackTrace();
