@@ -113,7 +113,7 @@ public class GameBoardController implements Initializable {
                     try {
 
                         getPlayerAndPlayerTurn();
-                        infoPrinterController.nextPlayerTurn(playerOneTurn);
+                        infoPrinterController.nextPlayerTurn();
                         assignCards();
                         printCardsOnHand();
                         printCardsOnBoard(playerCards, enemyCards);

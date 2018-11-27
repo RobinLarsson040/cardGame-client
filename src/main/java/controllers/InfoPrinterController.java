@@ -35,7 +35,7 @@ public class InfoPrinterController {
         timeline.play();
     }
 
-    public void nextPlayerTurn(boolean playerOneTurn) {
-        INFO_TEXT_INPUT.setText(playerOneTurn ? "Player 1:s turn" : "Player 2:s turn");
+    public void nextPlayerTurn() {
+        INFO_TEXT_INPUT.setText(ClientGame.getDto().getPlayerTurn()+"´s turn.");
     }
 }
